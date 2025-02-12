@@ -33,6 +33,7 @@ body {
 
 .nav-links li {
     position: relative;
+    
 }
 
 .nav-links a {
@@ -96,5 +97,11 @@ body {
     color: white;
 }
 .banner h1{
-    font-size: 5rem;
+    font-size: 3rem;
+}
+.logo img{
+width: 140px;
+}
+.font{
+    font-family: 'Bubblegum Sans';
 }
