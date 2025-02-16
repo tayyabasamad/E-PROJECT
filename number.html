@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="number.css">
+</head>
+
+<body>
+
+    <div class="banner">
+        <h1 class="text-centre">NUMBERS</h1>
+    </div>
+    <div class="container">
+
+        <center>
+            <h1 class="text-dark fw-bold mb-4 font  ">Counting 1 to 100</h1>
+        </center>
+    </div>
+    <div class="container" id="cardContainer"></div>
+
+    <div class="container">
+
+        <center>
+            <h1 class="text-dark fw-bold mb-4 font  ">Multipilication Table (2-5)</h1>
+        </center>
+    </div>
+    <section class="section">
+        <div class="table-container" id="tableContainer"></div>
+    </section>
+    <section>
+        <div class="container">
+
+            <center>
+                <h1 class="text-dark fw-bold mb-4 font " id="add">Addition & Subtraction</h1>
+            </center>
+            </div>
+        
+    </section>
+    <!-- script -->
+    <script>
+        const container = document.getElementById("cardContainer");
+        for (let i = 1; i <= 100; i++) {
+            let card = document.createElement("div");
+            card.className = "card";
+            card.textContent = i;
+            container.appendChild(card);
+        }
+        const tables = [2, 3, 4, 5];
+        const tableContainer = document.getElementById("tableContainer");
+        tables.forEach(num => {
+            let card = document.createElement("div");
+            card.className = "table-card";
+            let content = `<h3>Table of ${num}</h3>`;
+            for (let i = 1; i <= 10; i++) {
+                content += `<p>${num} × ${i} = ${num * i}</p>`;
+            }
+            card.innerHTML = content;
+            tableContainer.appendChild(card);
+        });
+      
+    </script>
+</body>
+
+</html>
