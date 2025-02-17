@@ -105,3 +105,6 @@ width: 140px;
 .font{
     font-family: 'Bubblegum Sans';
 }
+#kids-card img{
+    border: #333;
+}
