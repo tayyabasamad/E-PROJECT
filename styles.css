@@ -104,7 +104,16 @@ width: 140px;
 }
 .font{
     font-family: 'Bubblegum Sans';
+    font-size: 45px
 }
 #kids-card img{
     border: #333;
+}
+.card-body h5{
+    font-family: 'bubblegum sans';
+    font-size: 35px;
+   ;
+}
+#backg{
+    background-color: rgb(240, 235, 230);
 }
