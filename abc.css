@@ -3,6 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
+    padding: 0;
  background-color: rgb(235, 229, 222);
 }
 .navbar {
@@ -57,6 +58,7 @@ body {
     top: 100%;
     left: 0;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+ 
 }
 .dropdown:hover .dropdown-menu {
     display: block;

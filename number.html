@@ -29,37 +29,41 @@
             <li><a href="contact.html">Contact Us</a></li>
         </ul>
     </nav>
+
     <div class="banner">
         <h1>NUMBERS</h1>
     </div>
-    <h1 class="head">Counting 1 to 100</h1>
+
+    <center>
+        <h1 class="head">Counting 1 to 100</h1>
+    </center>
     <div class="container" id="cardContainer"></div>
-    <h1 class="head">Multiplication Table (2-5)</h1>
+
+    <center>
+        <h1 class="head">Multiplication Table (2-5)</h1>
+    </center>
     <div class="table-container" id="tableContainer"></div>
-    <h1 class="head">Addition & Subtraction</h1>
-    <!-- script -->
-    <script>
-        const container = document.getElementById("cardContainer");
-        for (let i = 1; i <= 100; i++) {
-            let card = document.createElement("div");
-            card.className = "card";
-            card.textContent = i;
-            container.appendChild(card);
-        }
-        const tables = [2, 3, 4, 5];
-        const tableContainer = document.getElementById("tableContainer");
-        tables.forEach(num => {
-            let card = document.createElement("div");
-            card.className = "table-card";
-            let content = `<h3>Table of ${num}</h3>`;
-            for (let i = 1; i <= 10; i++) {
-                content += `<p>${num} × ${i} = ${num * i}</p>`;
-            }
-            card.innerHTML = content;
-            tableContainer.appendChild(card);
-        });
-    </script
-    </script>
+
+    <center>
+        <h1 class="head">Addition & Subtraction</h1>
+    </center>
+    <!-- Addition & Subtraction Section -->
+    <div class="question-container">
+        <span id="number1">5</span>
+        <span id="operation">+</span>
+        <span id="number2">3</span>
+        <span>=</span>
+        <input type="text" id="answer" placeholder="Your answer" autofocus>
+    </div>
+
+    <div class="buttons">
+        <button id="addButton" class="btn">Addition</button>
+        <button id="subtractButton" class="btn">Subtraction</button>
+    </div>
+
+    <div id="result-message"></div>
+
+    <script src="number.js"></script>
 </body>
 
 </html>

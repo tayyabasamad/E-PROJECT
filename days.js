@@ -16,3 +16,6 @@ months.forEach(month => {
     card.textContent = month;
     monthsContainer.appendChild(card);
 });
+document.getElementById("mobile-menu").addEventListener("click", function() {
+    document.querySelector(".nav-links").classList.toggle("active");
+});

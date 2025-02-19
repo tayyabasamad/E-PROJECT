@@ -3,6 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
+    padding: 0;
  background-color: rgb(235, 229, 222);
 }
 .navbar {
