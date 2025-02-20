@@ -19,68 +19,69 @@ tables.forEach(num => {
     tableContainer.appendChild(card);
 });
 
-// Addition & Subtraction Section
 const answerInput = document.getElementById("answer");
 const resultMessage = document.getElementById("result-message");
-
 let num1, num2, operation;
 
 function generateMathProblem() {
-    num1 = Math.floor(Math.random() * 10) + 1;
-    num2 = Math.floor(Math.random() * 10) + 1;
-
-    // Randomize the operation (addition or subtraction)
-    if (operation === "+") {
-        document.getElementById("operation").textContent = "+";
-        document.getElementById("number1").textContent = num1;
-        document.getElementById("number2").textContent = num2;
-    } else {
-        document.getElementById("operation").textContent = "-";
-        document.getElementById("number1").textContent = num1;
-        document.getElementById("number2").textContent = num2;
-    }
+  // Generate two random numbers between 1 and 10
+  num1 = Math.floor(Math.random() * 10) + 1;
+  num2 = Math.floor(Math.random() * 10) + 1;
+  
+  // Set the problem display based on the current operation
+  document.getElementById("number1").textContent = num1;
+  document.getElementById("number2").textContent = num2;
+  document.getElementById("operation").textContent = operation;
+  answerInput.value = "";
+  answerInput.focus();
 }
 
 function checkAnswer() {
-    const userAnswer = parseInt(answerInput.value);
-    let correctAnswer;
-
-    if (operation === "+") {
-        correctAnswer = num1 + num2;
-    } else {
-        correctAnswer = num1 - num2;
-    }
-
-    if (userAnswer === correctAnswer) {
-        resultMessage.textContent = "Great job! That's correct!";
-        resultMessage.classList.add("correct");
-        resultMessage.classList.remove("incorrect");
-    } else {
-        resultMessage.textContent = "Oops! That's not right. Try again!";
-        resultMessage.classList.add("incorrect");
-        resultMessage.classList.remove("correct");
-    }
-
+  const userAnswer = parseInt(answerInput.value);
+  let correctAnswer = (operation === "+") ? num1 + num2 : num1 - num2;
+  
+  // Provide animated feedback for toddlers
+  if (userAnswer === correctAnswer) {
+    resultMessage.textContent = "Yay! Great job!";
+    resultMessage.classList.remove("incorrect");
+    resultMessage.classList.add("correct");
+    // Animate the feedback
+    resultMessage.style.transform = "scale(1.2)";
     setTimeout(() => {
-        resultMessage.textContent = "";
-        answerInput.value = "";
-        generateMathProblem();
-    }, 1500);
+      resultMessage.style.transform = "scale(1)";
+    }, 500);
+  } else {
+    resultMessage.textContent = "Oops! Try again!";
+    resultMessage.classList.remove("correct");
+    resultMessage.classList.add("incorrect");
+    resultMessage.style.transform = "rotate(-5deg)";
+    setTimeout(() => {
+      resultMessage.style.transform = "rotate(0deg)";
+    }, 500);
+  }
+  
+  // Clear message and generate new problem after 1.5 seconds
+  setTimeout(() => {
+    resultMessage.textContent = "";
+    generateMathProblem();
+  }, 1500);
 }
 
+// Button event listeners to set the operation and generate a problem
 document.getElementById("addButton").addEventListener("click", () => {
-    operation = "+";
-    generateMathProblem();
+  operation = "+";
+  generateMathProblem();
 });
 
 document.getElementById("subtractButton").addEventListener("click", () => {
-    operation = "-";
-    generateMathProblem();
+  operation = "-";
+  generateMathProblem();
 });
 
-answerInput.addEventListener("input", () => {
-    if (answerInput.value !== "") {
-        checkAnswer();
-    }
+// Listen for user input; when complete, check answer
+answerInput.addEventListener("keydown", (e) => {
+  // Allow check when the user presses Enter
+  if (e.key === "Enter" && answerInput.value.trim() !== "") {
+    checkAnswer();
+  }
 });
-
