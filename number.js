@@ -1,3 +1,7 @@
+document.getElementById("mobile-menu").addEventListener("click", function() {
+  document.querySelector(".nav-links").classList.toggle("active");
+});
+
 const container = document.getElementById("cardContainer");
 for (let i = 1; i <= 100; i++) {
     let card = document.createElement("div");
